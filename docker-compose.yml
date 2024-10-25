@@ -1,7 +1,6 @@
 volumes:
   psql:
-  api-gradle:
-  api-build:
+  build:
 services:
   db:
     container_name: rest-kt-db
@@ -14,18 +13,28 @@ services:
     volumes:
       - psql:/var/lib/postgresql/data
       - ./db:/docker-entrypoint-initdb.d
-  api:
-    container_name: rest-kt-api
+    ports: [5432:5432]
+  builder:
+    container_name: rest-kt-builder
     image: gradle:8.10.2-jdk17
     working_dir: /app
     volumes:
       - .:/app
-      - api-gradle:/app/.gradle
-      - api-build:/app/build
-    command: gradle run --no-daemon
+      - build:/app/build
+      - /app/.gradle
+    command: gradle build --continuous
+  runner:
+    container_name: rest-kt-runner
+    image: gradle:8.10.2-jdk17
+    working_dir: /app
+    volumes:
+      - .:/app
+      - build:/app/build
+      - /app/.gradle
+    command: gradle bootRun
     environment:
       DATABASE_URL: jdbc:postgresql://db:5432/root
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: root
     ports: [8080:8080]
-    depends_on: [db]
+    depends_on: [db, builder]

@@ -15,6 +15,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter:3.3.4")
     implementation("org.springframework.boot:spring-boot-starter-web:3.3.4")
+    implementation("org.springframework.security:spring-security-web:6.3.4")
     implementation("org.projectlombok:lombok:1.18.34")
     implementation("org.postgresql:postgresql:42.7.4")
     implementation("org.ktorm:ktorm-core:4.1.1")
@@ -25,6 +26,8 @@ dependencies {
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.0")
     implementation("com.google.code.gson:gson:2.7")
+    implementation("com.auth0:java-jwt:4.4.0")
+    implementation("com.sendgrid:sendgrid-java:4.10.3")
     developmentOnly("org.springframework.boot:spring-boot-devtools:3.3.4")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.3.4")
 }

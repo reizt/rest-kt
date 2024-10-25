@@ -22,7 +22,7 @@ services:
       - .:/app
       - build:/app/build
       - /app/.gradle
-    command: gradle build --continuous
+    command: gradle build --continuous --no-daemon
   runner:
     container_name: rest-kt-runner
     image: gradle:8.10.2-jdk17
@@ -31,7 +31,7 @@ services:
       - .:/app
       - build:/app/build
       - /app/.gradle
-    command: gradle bootRun
+    command: gradle bootRun --no-daemon
     environment:
       DATABASE_URL: jdbc:postgresql://db:5432/root
       DATABASE_USERNAME: root

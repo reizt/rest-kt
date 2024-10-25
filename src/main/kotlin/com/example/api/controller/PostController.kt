@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 
 data class GetPostsResponseBody(
@@ -48,9 +48,9 @@ class PostController(
 ) {
 	@GetMapping("/posts")
 	fun getAll(
-		@CookieValue(COOKIE_NAME) token: String,
+		@RequestParam userId: String?,
 	): GetPostsResponseBody {
-		val input = GetPostsInput(userId = token)
+		val input = GetPostsInput(userId = userId)
 		val output = getPostsU.run(input)
 		return GetPostsResponseBody(posts = output.posts)
 	}

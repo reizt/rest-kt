@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component
 
 @Component
 data class DBConfig(
-	@Value("\${spring.datasource.url}")
+	@Value("\${db.url}")
 	val url: String = "url",
-	@Value("\${spring.datasource.user}")
+	@Value("\${db.user}")
 	val user: String = "user",
-	@Value("\${spring.datasource.password}")
+	@Value("\${db.password}")
 	val password: String = "password",
 )

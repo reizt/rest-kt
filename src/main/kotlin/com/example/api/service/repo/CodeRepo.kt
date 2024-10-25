@@ -10,7 +10,6 @@ import org.ktorm.dsl.eq
 import org.ktorm.dsl.from
 import org.ktorm.dsl.insert
 import org.ktorm.dsl.select
-import org.ktorm.dsl.update
 import org.ktorm.dsl.where
 import org.springframework.stereotype.Repository
 
@@ -48,7 +47,7 @@ class CodeRepo(
 
 	override fun delete(where: RepoCodeDelete) {
 		db.delete(Codes) {
-      Codes.id eq where.id
+			Codes.id eq where.id
 		}
 	}
 }

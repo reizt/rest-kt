@@ -1,10 +1,9 @@
 package com.example.api.usecase.user
 
-import com.example.api.domain.UserStatus
 import com.example.api.iservice.repo.IUserRepo
-import com.example.api.iusecase.user.IGetUser
 import com.example.api.iusecase.user.GetUserInput
 import com.example.api.iusecase.user.GetUserOutput
+import com.example.api.iusecase.user.IGetUser
 import com.example.api.usecase.TokenAuthenticator
 import org.springframework.stereotype.Service
 

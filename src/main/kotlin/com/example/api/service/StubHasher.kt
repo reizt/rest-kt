@@ -4,12 +4,11 @@ import com.example.api.iservice.IHasher
 import org.springframework.stereotype.Component
 
 @Component
-class Argon2Hasher : IHasher {
-	override fun hash(data: String): String {
-		return data
-	}
+class StubHasher : IHasher {
+	override fun hash(data: String): String = data
 
-	override fun compare(hash: String, data: String): Boolean {
-		return hash == data
-	}
+	override fun compare(
+		hash: String,
+		data: String,
+	): Boolean = hash == data
 }

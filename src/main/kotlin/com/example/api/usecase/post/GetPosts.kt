@@ -1,4 +1,4 @@
-package com.example.api.usecase
+package com.example.api.usecase.post
 
 import com.example.api.iservice.repo.IPostRepo
 import com.example.api.iusecase.post.GetPostsInput

@@ -1,9 +1,10 @@
-package com.example.api.usecase
+package com.example.api.usecase.post
 
 import com.example.api.domain.UserStatus
 import com.example.api.iservice.repo.IPostRepo
 import com.example.api.iusecase.post.DeletePostInput
 import com.example.api.iusecase.post.IDeletePost
+import com.example.api.usecase.TokenAuthenticator
 import org.springframework.stereotype.Service
 
 @Service

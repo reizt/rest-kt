@@ -1,4 +1,4 @@
-package com.example.api.usecase
+package com.example.api.usecase.post
 
 import com.example.api.domain.UserStatus
 import com.example.api.iservice.repo.IPostRepo
@@ -6,6 +6,8 @@ import com.example.api.iservice.repo.RepoPost
 import com.example.api.iusecase.post.CreatePostInput
 import com.example.api.iusecase.post.CreatePostOutput
 import com.example.api.iusecase.post.ICreatePost
+import com.example.api.usecase.TokenAuthenticator
+import com.example.api.usecase.generateId
 import org.springframework.stereotype.Service
 
 @Service
